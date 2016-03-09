@@ -1,0 +1,21 @@
+@charset "utf-8";
+@import "normalize";
+
+body {
+    font-family: "Raleway", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 1em;
+    text-align: center;
+
+    &:before {
+        background: -webkit-radial-gradient(top center, ellipse cover, #d7eeff 0%, #a2d6ff 100%) fixed 0 0 transparent;
+        background: -moz-radial-gradient(top center, ellipse cover, #d7eeff 0%, #a2d6ff 100%) fixed 0 0 transparent;
+        background: radial-gradient(top center, ellipse cover, #d7eeff 0%, #a2d6ff 100%) fixed 0 0 transparent;
+        content: " ";
+        height: 100%;
+        left: 0;
+        position: fixed;
+        top: 0;
+        width: 100%;
+        z-index: -1;
+    }
+}
