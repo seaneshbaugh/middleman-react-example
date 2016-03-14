@@ -12,8 +12,8 @@ class Item extends React.Component {
     }
 
     render() {
-        return <li>
-            <span className="todo-item-name">
+        return <li className="item">
+            <span className="item-name">
                 {this.props.itemName}
             </span>
             <DeleteItemButton onClick={this.delete} />

@@ -3,8 +3,7 @@ class TodoApp extends React.Component {
         super(props);
 
         this.state = {
-            items: [],
-            title: "My Todo List (0 Items)"
+            items: []
         };
 
         this.addItem = this.addItem.bind(this);
@@ -13,38 +12,36 @@ class TodoApp extends React.Component {
     }
 
     addItem(itemName) {
-        var items, title;
+        var items;
 
         items = this.state.items.slice();
 
         items.push(itemName);
 
-        title = "My Todo List (" + items.length.toString() + " Items)";
-
         this.setState({
-            items: items,
-            title: title
+            items: items
         });
     }
 
     deleteItem(index) {
-        var items, title;
+        var items;
 
         items = this.state.items.slice();
 
         items.splice(index, 1);
 
-        title = "My Todo list (" + items.length.toString() + " Items)";
-
         this.setState({
-            items: items,
-            title: title
+            items: items
         });
     }
 
     render() {
+        var title;
+
+        title = "My Todo list (" + this.state.items.length.toString() + " Items)";
+
         return <div className="todo-app">
-            <h1>{this.state.title}</h1>
+            <h1 className="title">{title}</h1>
             <AddItem onAddItem={this.addItem} />
             <ItemList items={this.state.items} onDeleteItem={this.deleteItem} />
         </div>;

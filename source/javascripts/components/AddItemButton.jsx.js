@@ -12,6 +12,6 @@ class AddItemButton extends React.Component {
     }
 
     render() {
-        return <button disabled={this.props.disabled} onClick={this.handleClick}>Add Item</button>;
+        return <button className="add-item-button" disabled={this.props.disabled} onClick={this.handleClick}>Add Item</button>;
     }
 }

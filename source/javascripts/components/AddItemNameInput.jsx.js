@@ -12,6 +12,6 @@ class AddItemNameInput extends React.Component {
     }
 
     render() {
-        return <input type="text" value={this.props.itemName} onChange={this.handleChange} />;
+        return <input className="add-item-input" placeholder="Item Name" type="text" value={this.props.itemName} onChange={this.handleChange} />;
     }
 }

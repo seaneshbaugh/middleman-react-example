@@ -12,6 +12,6 @@ class DeleteItemButton extends React.Component {
     }
 
     render() {
-        return <button className="delete-todo-item" onClick={this.handleClick}>&times;</button>;
+        return <button className="delete-item-button" onClick={this.handleClick}>&times;</button>;
     }
 }

@@ -1,10 +1,61 @@
 @charset "utf-8";
+
 @import "normalize";
+
+@mixin button {
+    background: #00ffa1;
+    border: 1px solid transparent;
+    border-radius: 0;
+    color: #000000;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 0.9rem;
+    line-height: 1rem;
+    margin: 0;
+    padding: 0.80rem 1rem;
+    text-align: center;
+    transition: background-color 0.25s ease-out, color 0.25s ease-out;
+    vertical-align: middle;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+
+    &[disabled] {
+        cursor: not-allowed;
+        opacity: 0.25;
+    }
+}
+
+@mixin input {
+    background-color: #fefefe;
+    border: 1px solid #cacaca;
+    border-radius: 0;
+    box-shadow: inset 0 1px 2px rgba(10, 10, 10, 0.1);
+    box-sizing: border-box;
+    color: #0a0a0a;
+    display: inline-block;
+    font-size: 1rem;
+    height: 2.70rem;
+    padding: 0.5rem;
+    transition: box-shadow 0.5s, border-color 0.25s ease-in-out;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+
+    &:focus {
+        background-color: #fefefe;
+        border: 1px solid #8a8a8a;
+        box-shadow: 0 0 5px #cacaca;
+        outline: none;
+        transition: box-shadow 0.5s, border-color 0.25s ease-in-out;
+    }
+
+    &::-webkit-input-placeholder, &::-moz-placeholder, &:-ms-input-placeholder, &::placeholder {
+        color: #cacaca;
+    }
+}
 
 body {
     font-family: "Raleway", "Helvetica Neue", Helvetica, Arial, sans-serif;
-    font-size: 1em;
-    text-align: center;
+    font-size: 100%;
 
     &:before {
         background: -webkit-radial-gradient(top center, ellipse cover, #d7eeff 0%, #a2d6ff 100%) fixed 0 0 transparent;
@@ -19,3 +70,115 @@ body {
         z-index: -1;
     }
 }
+
+.todo-app {
+    margin: 0 auto;
+    padding: 1rem;
+    width: 20rem;
+
+    .title {
+        font-size: 1.6rem;
+        margin: 0 0 0.6rem;
+        text-align: center;
+    }
+
+    .add-item {
+        overflow: hidden;
+
+        .add-item-input {
+            @include input;
+
+            display: block;
+            float: left;
+            width: 13rem;
+        }
+
+        .add-item-button {
+            @include button;
+
+            display: block;
+            float: left;
+            width: 7rem;
+        }
+    }
+
+    .item-list {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+
+        .item {
+            margin-top: 0.5rem;
+            overflow: hidden;
+
+            .item-name {
+                display: block;
+                font-size: 1.4rem;
+                float: left;
+                line-height: 2.8rem;
+                vertical-align: middle;
+                width: 17rem;
+                word-break: break-word;
+            }
+
+            .delete-item-button {
+                @include button;
+
+                background-color: #f78761;
+                display: block;
+                float: left;
+                width: 3rem;
+            }
+        }
+    }
+}
+
+/* Only small */
+@media screen and (max-width: 39.9375em) {}
+
+/* Medium and up */
+@media screen and (min-width: 40em) {
+    .todo-app {
+        padding: 1.2rem;
+        width: 30rem;
+
+        .title {
+            font-size: 1.8rem;
+            margin: 0 0 0.8rem;
+        }
+
+        .add-item {
+            .add-item-input {
+                width: 23rem;
+            }
+
+            .add-item-buttom {
+                width: 7rem;
+            }
+        }
+
+        .item-list {
+            .item {
+                .item-name {
+                    width: 27rem;
+                }
+
+                .delete-item-button {
+                    width: 3rem;
+                }
+            }
+        }
+    }
+}
+
+/* Medium only */
+@media screen and (min-width: 40em) and (max-width: 63.9375em) {}
+
+/* Large and up */
+@media screen and (min-width: 64em) {}
+
+/* Large only */
+@media screen and (min-width: 64em) and (max-width: 74.9375em) {}
+
+/* Extra large and up */
+@media screen and (min-width: 75em) {}

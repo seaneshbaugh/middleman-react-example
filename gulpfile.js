@@ -13,7 +13,7 @@ jsFiles = {
     source: [
         "./source/javascripts/**/*"
     ]
-}
+};
 
 gulp.task("concat", function() {
     return gulp.src(jsFiles.vendor.concat(jsFiles.source))

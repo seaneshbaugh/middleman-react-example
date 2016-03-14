@@ -20,7 +20,7 @@ class ItemList extends React.Component {
             };
         })(this));
 
-        return <ul className="todo-items">
+        return <ul className="item-list">
             {items}
         </ul>;
     }
